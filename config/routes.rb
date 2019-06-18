@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # if user is logged in
-  # change the root to home
-  #root to: 'static#home'
+  authenticated :user do
+    root 'static#home', as: :authenticated_root
+  end
+
   root to: 'static#landing'
 end
