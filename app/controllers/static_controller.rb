@@ -1,7 +1,7 @@
-class StaticController < ApplicationController
-  def home
-  end
+# frozen_string_literal: true
 
-  def landing
-  end
+class StaticController < ApplicationController
+  def home; end
+
+  def landing; end
 end
