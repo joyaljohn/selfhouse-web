@@ -22,7 +22,8 @@ RSpec.describe PublicationSubCategory, type: :model do
 
     context "missing name" do
       it "should not save and return false" do
-        subcat = PublicationSubCategory.new(attributes_for(:publication_sub_category, name: nil))
+        cat = build(:publication_category)
+        subcat = PublicationSubCategory.new(attributes_for(:publication_sub_category, publication_category: cat, name: nil))
 
         expect(subcat.save).to eq(false)
       end

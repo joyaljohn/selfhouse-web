@@ -35,6 +35,8 @@ module Selfhouse
       g.assets false
       g.helper false
       g.view_specs false
+      g.routing_specs false
+      g.request_specs false
     end
   end
 end
