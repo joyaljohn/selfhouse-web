@@ -28,6 +28,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.save
+        @publication.file.attach(publication_params[:file])
         format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
       else
@@ -69,6 +70,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :abstract, :publication_sub_category_id, :user_id)
+      params.require(:publication).permit(:title, :abstract, :publication_sub_category_id, :user_id, :file)
     end
 end
