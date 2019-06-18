@@ -3,5 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  root to: 'static#home'
+  # if user is logged in
+  # change the root to home
+  #root to: 'static#home'
+  root to: 'static#landing'
 end
