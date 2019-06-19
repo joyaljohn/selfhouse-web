@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'library', to: 'library#index'
+
   resources :publications
   devise_for :users, controllers: {
     registrations: 'users/registrations'
