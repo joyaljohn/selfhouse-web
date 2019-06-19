@@ -6,15 +6,15 @@ class PublicationPolicy < ApplicationPolicy
     @publication = publication
   end
 
-  def update?
-    publication.user_id == user.id
+  def self.update?
+    @publication.user == @user
   end
 
-  def edit?
-    publication.user_id == user.id
+  def self.edit?
+    @publication.user == @user
   end
 
-  def destroy?
-    publication.user_id == user.id
+  def self.destroy?
+    @publication.user == @user
   end
 end
