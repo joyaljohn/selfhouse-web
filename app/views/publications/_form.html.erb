@@ -22,22 +22,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :publication_sub_category_id %>
-    <%= form.text_field :publication_sub_category_id %>
+    <%= form.label :publication_sub_category %>
+    <%= form.collection_select(:publication_sub_category, PublicationSubCategory.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= form.label :file %> 
     <%= form.file_field :file, multiple: false, direct_upload: true %> 
   </div>
-
-<!--
-   -  <div class="field">
-   -    <%= form.label :user_id %>
-   -    <%= form.text_field :user_id %>
-   -  </div>
-   -
-   -->
 
   <div class="actions">
     <%= form.submit %>
