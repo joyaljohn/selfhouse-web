@@ -1,24 +1,10 @@
-# README
+# SelfHouse-Web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository is the codebase for the main rails monolith that makes up Selfhouse.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Development Setup
+- Ruby >= 2.6
+- Rails 2.5.2
+- Node.js >= 11
+- PostgreSQL
+- The `foreman` gem installed globally to run the `bin/foreman` script (Boots the local dev server)
