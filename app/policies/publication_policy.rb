@@ -6,15 +6,35 @@ class PublicationPolicy < ApplicationPolicy
     @publication = publication
   end
 
+  def self.index?
+    true
+  end
+
+  def self.show?
+    true
+  end
+
   def self.update?
-    @publication.user == @user
+    if @publication.user.id == @user.id
+      true
+    else
+      false
+    end
   end
 
   def self.edit?
-    @publication.user == @user
+    if @publication.user.id == @user.id
+      true
+    else
+      false
+    end
   end
 
   def self.destroy?
-    @publication.user == @user
+    if @publication.user.id == @user.id
+      true
+    else
+      false
+    end
   end
 end
