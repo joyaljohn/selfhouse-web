@@ -13,4 +13,10 @@ class LibraryController < ApplicationController
     @categories = PublicationCategory.all
     render :index
   end
+
+  def subcategory
+    @publications = Publication.where(publication_sub_category: params[:subcategory])
+    render :index
+  end
+
 end

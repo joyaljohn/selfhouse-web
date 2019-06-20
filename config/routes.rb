@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :publications
   scope "library" do
     get ':category', to: 'library#category'
+    get ':category/:subcategory', to: 'library#subcategory'
   end
 
 
