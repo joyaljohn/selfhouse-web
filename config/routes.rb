@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'library', to: 'library#index'
 
   resources :publications
+  scope "library" do
+    get ':category', to: 'library#category'
+  end
+
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
