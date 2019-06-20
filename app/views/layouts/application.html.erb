@@ -14,11 +14,6 @@
   <body>
     <div>
       <%= render 'shared/navbar' %>
-      <% if current_user == nil %> 
-        <%= link_to("Login", new_user_session_path) %>
-      <% else %>
-        <%= link_to("Logout", destroy_user_session_path, method: :delete) %>
-      <% end %>
     </div>
     <%= yield %>
   </body>
