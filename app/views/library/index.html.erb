@@ -2,6 +2,6 @@
 
 <ul>
   <% @publications.each do |p| %>
-    <li><%= p.title %> by <%= "#{p.user.first_name} #{p.user.last_name}" %></li>
+    <li><%= link_to(p.title, publication_path(p)) %></a> by <%= "#{p.user.first_name} #{p.user.last_name}" %></li>
   <% end %>
 </ul>
