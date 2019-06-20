@@ -1,5 +1,5 @@
 class LibraryController < ApplicationController
   def index
-    @publications = Publications.all
+    @publications = Publication.all
   end
 end
