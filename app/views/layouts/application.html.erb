@@ -9,12 +9,11 @@
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
-    <%= styleshhet_pack_tag 'bootstrap' %>
-
   </head>
 
   <body>
     <div>
+      <%= render 'shared/navbar' %>
       <% if current_user == nil %> 
         <%= link_to("Login", new_user_session_path) %>
       <% else %>
