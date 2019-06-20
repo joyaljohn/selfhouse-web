@@ -1,6 +1,5 @@
 <style type="text/css">
 
-/* sign in FORM */
 #logreg-forms{
     width:412px;
     margin:10vh auto;
@@ -58,7 +57,7 @@
 
 #logreg-forms button[type="submit"]{ margin-top:10px; }
 
-#logreg-forms .facebook-btn{  background-color:#3C589C; }
+#logreg-forms .facebook-btn{ background-color:#3C589C; }
 
 #logreg-forms .google-btn{ background-color: #DF4B3B; }
 
@@ -71,6 +70,10 @@
 .form-signup .social-login{
     width:210px !important;
     margin: 0 auto;
+}
+
+.text-white {
+  color: white !important;
 }
 
 /* Mobile */
@@ -104,7 +107,7 @@
     }
   
     #logreg-forms  .google-btn:after{
-        content:'Google+';
+        content:'Google';
     }
     
 }
@@ -114,8 +117,8 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
     <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
     <div class="social-login">
-        <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
-        <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+        <button class="btn facebook-btn social-btn" type="button"><span class="text-white"><i class="fa fa-facebook-f"></i> Sign in with Facebook</span> </button>
+        <button class="btn google-btn social-btn" type="button"><span class="text-white"><i class="fa fa-google"></i> Sign in with Google</span> </button>
     </div>
     <p style="text-align:center"> OR  </p>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email Address" %>
@@ -133,6 +136,6 @@
     <a href="#" id="forgot_pswd">Forgot password?</a>
     <hr>
      <p>Don't have an account?</p>  
-    <%= link_to("Sign up For a New Account", new_user_registration_path, class: "btn btn-primary btn-block", id: "btn-signup") %>
+    <%= link_to("Sign up For a New Account", new_user_registration_path, class: "btn btn-primary btn-block text-white", id: "btn-signup") %>
   <% end %>
 </div>

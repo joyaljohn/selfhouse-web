@@ -38,8 +38,8 @@
 	<h4 class="card-title mt-3 text-center">Create Account</h4>
   <!-- <p class="text-center">Get started with your free account</p> -->
 	<p>
-		<a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Google</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+		<a href="" class="btn btn-block btn-google"> <i class="fa fa-google"></i>   Login with Google</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fa fa-facebook-f"></i>   Login with facebook</a>
 	</p>
 	<p class="divider-text">
         <span class="bg-light">OR</span>
@@ -73,7 +73,7 @@
     </div>
     <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
   </div> <!-- form-group// -->      
-    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+  <p class="text-center">Have an account? <%= link_to("Log In", new_user_session_path) %> </p>                                                                 
   <% end %>
 </article>
 </div> <!-- card.// -->
