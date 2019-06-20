@@ -9,11 +9,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Test User
-User.create(first_name: "Test",
+@user = User.new(first_name: "Test",
             last_name: "User",
             email: "test@test.com",
             password: "password",
             password_confirmation: "password")
+@user.skip_confirmation!
+@user.save!
 
 # Parent Categories
 PublicationCategory.create([
