@@ -6,7 +6,9 @@ RSpec.describe Publication, type: :model do
       it "should save and return true" do
         cat = build(:publication_category)
         subcat = build(:publication_sub_category, publication_category: cat)
-        user = build(:user)
+        user = User.new(attributes_for(:user))
+        user.skip_confirmation!
+        user.save!
         pub = build(:publication, publication_sub_category: subcat, user: user)
         
         expect(pub.save).to eq(true)
@@ -17,7 +19,9 @@ RSpec.describe Publication, type: :model do
       it "should not save and return false" do
         user = build(:user)
         pub = build(:publication, publication_sub_category: nil, user: user)
-        
+        user = User.new(attributes_for(:user))
+        user.skip_confirmation!
+        user.save!
         expect(pub.save).to eq(false)
       end
     end
@@ -26,7 +30,9 @@ RSpec.describe Publication, type: :model do
       it "should not save and return false" do
         cat = build(:publication_category)
         subcat = build(:publication_sub_category, publication_category: cat)
-        user = build(:user)
+        user = User.new(attributes_for(:user))
+        user.skip_confirmation!
+        user.save!
         pub = build(:publication, publication_sub_category: subcat, user: nil)
         
         expect(pub.save).to eq(false)
@@ -37,7 +43,9 @@ RSpec.describe Publication, type: :model do
       it "should not save and return false" do
         cat = build(:publication_category)
         subcat = build(:publication_sub_category, publication_category: cat)
-        user = build(:user)
+        user = User.new(attributes_for(:user))
+        user.skip_confirmation!
+        user.save!
         pub = build(:publication, title: nil, publication_sub_category: subcat, user: user)
         
         expect(pub.save).to eq(false)
@@ -48,7 +56,9 @@ RSpec.describe Publication, type: :model do
       it "should save and return true" do
         cat = build(:publication_category)
         subcat = build(:publication_sub_category, publication_category: cat)
-        user = build(:user)
+        user = User.new(attributes_for(:user))
+        user.skip_confirmation!
+        user.save!
         pub = build(:publication, abstract: nil, publication_sub_category: subcat, user: user)
         
         expect(pub.save).to eq(true)
