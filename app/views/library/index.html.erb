@@ -1,0 +1,13 @@
+<h1>The Library</h1>
+
+<ul>
+  <% @categories.each do |p| %>
+    <li><%= link_to(p.name, "/library/#{p.name}") %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @publications.each do |p| %>
+    <li><%= link_to(p.title, publication_path(p)) %> by <%= "#{p.user.first_name} #{p.user.last_name}" %></li>
+  <% end %>
+</ul>
