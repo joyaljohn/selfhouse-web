@@ -32,8 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label for="publication[publication_sub_category]">Category</label>
-      <%= form.collection_select(:publication_sub_category, PublicationSubCategory.all, :id, :name, {}, class: "form-control") %>
+      <%= form.grouped_collection_select(:publication_sub_category, PublicationCategory.all, :publication_sub_categories, :name, :id, :name, {prompt: "Select a Category"}, class: "form-control") %>
     </div>
 
     <div class="form-group file-upload-field">
