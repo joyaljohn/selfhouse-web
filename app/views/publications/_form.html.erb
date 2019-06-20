@@ -1,37 +1,49 @@
-<%= form_with(model: publication, local: true) do |form| %>
-  <% if publication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+<style>
+.file-upload-field > input {
+  display: none;
+}
 
-      <ul>
-      <% publication.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+.file-upload-field > label {
+  cursor: pointer;
+}
+</style>
+
+<div class="container">
+  <%= form_with(model: publication, local: true) do |form| %>
+    <% if publication.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+        <ul>
+        <% publication.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.text_field :title, class: "form-control", placeholder: "Publication Title" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :abstract %>
+      <%= form.text_area :abstract, class: "form-control", placeholder: "Enamel pin tote bag authentic XOXO tbh fingerstache, etsy single-origin coffee helvetica glossier affogato. Lomo thundercats kale chips, lo-fi jean shorts roof party DIY schlitz. Palo santo affogato keffiyeh meggings chia sartorial mixtape schlitz semiotics. Gluten-free neutra af.", rows: 5 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.grouped_collection_select(:publication_sub_category, PublicationCategory.all, :publication_sub_categories, :name, :id, :name, {prompt: "Select a Category"}, class: "form-control") %>
+    </div>
+
+    <div class="form-group file-upload-field">
+      <label for="uploadField">
+        <span class="btn btn-block btn-info">Choose File</span>
+      </label>
+      <%= form.file_field :file, multiple: false, direct_upload: true, id: "uploadField" %> 
+    </div>
+
+    <div class="actions">
+      <%= form.submit("Submit", {class: "btn btn-block btn-success"}) %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :abstract %>
-    <%= form.text_area :abstract %>
-  </div>
-
-  <div class="field">
-    <%= form.label :publication_sub_category %>
-    <%= form.collection_select(:publication_sub_category, PublicationSubCategory.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :file %> 
-    <%= form.file_field :file, multiple: false, direct_upload: true %> 
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
