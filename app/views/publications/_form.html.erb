@@ -39,7 +39,8 @@
       <label for="uploadField">
         <span class="btn btn-block btn-info">Choose File</span>
       </label>
-      <%= form.file_field :file, multiple: false, direct_upload: true, id: "uploadField" %> 
+      <%= form.file_field :file, multiple: false, direct_upload: true, id: "uploadField",
+          accept: 'application/pdf' %> 
     </div>
 
     <div class="actions">
