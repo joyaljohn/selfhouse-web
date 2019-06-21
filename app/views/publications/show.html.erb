@@ -12,13 +12,14 @@
 
 <p>
   <strong>Publication sub category:</strong>
-  <%= @publication.publication_sub_category %>
+  <%= @publication.publication_sub_category.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @publication.user %>
+  <%= @publication.user.first_name %> <%= @publication.user.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
-<%= link_to 'Back', publications_path %>
+<%= link_to 'Back', publications_path %> | 
+<%= link_to 'Download', url_for(@publication.file)%>
