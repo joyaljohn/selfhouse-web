@@ -1,13 +1,5 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 # Test User
 @user = User.new(first_name: "Test",
             last_name: "User",
@@ -18,29 +10,23 @@
 @user.save!
 
 # Parent Categories
-PublicationCategory.create([
-  { name: "Fiction/Novels" },
-  { name: "Non-Fiction" },
-  { name: "Academia" }
-])
+cat_seed_file = YAML::load_file(Rails.root.join('db', 'category_seeds.yml'))
+PublicationCategory.create!(cat_seed_file)
 
 # Sub-Categories for Fiction
-PublicationSubCategory.create([
-  {name: "1", publication_category: PublicationCategory.where(name: "Fiction/Novels").first},
-  {name: "2", publication_category: PublicationCategory.where(name: "Fiction/Novels").first},
-  {name: "3", publication_category: PublicationCategory.where(name: "Fiction/Novels").first}
-])
+subcat_seed_file = YAML::load_file(Rails.root.join('db', 'subcategories', 'fiction.yml'))
+subcat_seed_file.each do |s|
+  PublicationSubCategory.create!(name: s["name"], publication_category: PublicationCategory.where(name: "Fiction").first)
+end
 
 # Sub-Categories for Non-Fiction
-PublicationSubCategory.create([
-  {name: "1", publication_category: PublicationCategory.where(name: "Non-Fiction").first},
-  {name: "2", publication_category: PublicationCategory.where(name: "Non-Fiction").first},
-  {name: "3", publication_category: PublicationCategory.where(name: "Non-Fiction").first}
-])
+subcat_seed_file = YAML::load_file(Rails.root.join('db', 'subcategories', 'non-fiction.yml'))
+subcat_seed_file.each do |s|
+  PublicationSubCategory.create!(name: s["name"], publication_category: PublicationCategory.where(name: "Non-Fiction").first)
+end
 
 # Sub-Categories for Academia
-PublicationSubCategory.create([
-  {name: "1", publication_category: PublicationCategory.where(name: "Academia").first},
-  {name: "2", publication_category: PublicationCategory.where(name: "Academia").first},
-  {name: "3", publication_category: PublicationCategory.where(name: "Academia").first}
-])
+subcat_seed_file = YAML::load_file(Rails.root.join('db', 'subcategories', 'academia.yml'))
+subcat_seed_file.each do |s|
+  PublicationSubCategory.create!(name: s["name"], publication_category: PublicationCategory.where(name: "Academia").first)
+end
