@@ -1,0 +1,8 @@
+- name: "Textbook"
+- name: "Theology"
+- name: "History"
+- name: "Law"
+- name: "Mathematics"
+- name: "Essay"
+- name: "Thesis"
+- name: "Lab Report"
