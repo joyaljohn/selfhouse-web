@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'pundit'
 gem 'flashee'
+gem 'activestorage-validator'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
