@@ -33,6 +33,8 @@ end
 
 # Publications
 publication_seed_file = YAML::load_file(Rails.root.join('db', 'publications.yml'))
-publication_seed_file.each do |s|
-  Publication.create!(title: s["title"], abstract: s["abstract"], publication_sub_category_id: rand(1..28), user: @user)
+28.times do
+  publication_seed_file.each do |s|
+    puts Publication.create!(title: s["title"], abstract: s["abstract"], publication_sub_category_id: rand(1..28), user: @user)
+  end
 end
