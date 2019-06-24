@@ -30,3 +30,9 @@ subcat_seed_file = YAML::load_file(Rails.root.join('db', 'subcategories', 'acade
 subcat_seed_file.each do |s|
   PublicationSubCategory.create!(name: s["name"], publication_category: PublicationCategory.where(name: "Academia").first)
 end
+
+# Publications
+publication_seed_file = YAML::load_file(Rails.root.join('db', 'publications.yml'))
+publication_seed_file.each do |s|
+  Publication.create!(title: s["title"], abstract: s["abstract"], publication_sub_category_id: rand(1..28), user: @user)
+end
