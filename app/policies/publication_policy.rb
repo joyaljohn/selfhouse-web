@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PublicationPolicy < ApplicationPolicy
   attr_reader :user, :publication
 
@@ -15,26 +17,14 @@ class PublicationPolicy < ApplicationPolicy
   end
 
   def self.update?
-    if @publication.user.id == @user.id
-      true
-    else
-      false
-    end
+    @publication.user.id == @user.id
   end
 
   def self.edit?
-    if @publication.user.id == @user.id
-      true
-    else
-      false
-    end
+    @publication.user.id == @user.id
   end
 
   def self.destroy?
-    if @publication.user.id == @user.id
-      true
-    else
-      false
-    end
+    @publication.user.id == @user.id
   end
 end

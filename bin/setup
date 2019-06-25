@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'fileutils'
-include FileUtils
+# include FileUtils
 
 # path to your application root.
 APP_ROOT = File.expand_path('..', __dir__)
@@ -23,7 +23,9 @@ chdir APP_ROOT do
   system('bin/yarn')
 
   # puts "\n== Copying sample files =="
-  unless File.exist?('config/database.yml')
+  if File.exist?('config/database.yml')
+    puts 'Database config already exists....'
+  else
     cp 'config/database.yml.sample', 'config/database.yml'
   end
 
