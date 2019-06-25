@@ -19,6 +19,7 @@ gem 'activestorage-validator'
 gem 'devise'
 gem 'flashee'
 gem 'pundit'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

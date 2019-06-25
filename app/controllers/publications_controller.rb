@@ -28,8 +28,7 @@ class PublicationsController < ApplicationController
     @publication = Publication.new(publication_params.merge(user: current_user))
 
     respond_to do |format|
-      if @publication.save
-        @publication.file.attach(publication_params[:file])
+      if PublicationCreateJob.perform_now(@publication, publication_params[:file])
         format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
       else
@@ -43,7 +42,7 @@ class PublicationsController < ApplicationController
   # PATCH/PUT /publications/1.json
   def update
     respond_to do |format|
-      if @publication.update(publication_params)
+      if PublicationUpdateJob.perform_now(@publication, publication_params)
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
         format.json { render :show, status: :ok, location: @publication }
       else
