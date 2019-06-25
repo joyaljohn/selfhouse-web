@@ -5,10 +5,8 @@ class PublicationCreateJob < ApplicationJob
 
   def perform(pub, file_param)
     pub.file.attach(file_param)
-    if pub.save
-      return true
-    else
-      return false
-    end
+    return true if pub.save
+
+    false
   end
 end
