@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PublicationCreateJob < ApplicationJob
   queue_as :default
 

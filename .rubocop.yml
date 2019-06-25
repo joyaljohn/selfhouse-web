@@ -14,3 +14,6 @@ Metrics/BlockLength:
 
 Metrics/AbcSize:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
