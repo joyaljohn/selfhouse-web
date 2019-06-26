@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'rubocop-rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
