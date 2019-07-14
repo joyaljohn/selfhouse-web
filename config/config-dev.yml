@@ -1,0 +1,9 @@
+FACEBOOK_APP_ID: '1255803474579277'
+
+FACEBOOK_APP_SECRET: '29b901fc5c7cc7babcb7c6075250ebb4'
+
+GOOGLE_APP_ID: '559165944555-mfnmcsrd9n3cgmqq50dnaauq5kse850p.apps.googleusercontent.com'
+
+GOOGLE_APP_SECRET: 'qVYWkoFpBLdvCjjCHjMxDOnq'
+
+HOST_URL: 'https://localhost:3000'

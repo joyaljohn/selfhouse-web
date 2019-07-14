@@ -5,21 +5,28 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+  def facebook
+    @user = User.checkOrSaveUser(request.env['omniauth.auth'].to_json)
+    sign_in_and_redirect @user
+  end
+
+  def google_oauth2
+    @user = User.checkOrSaveUser(request.env['omniauth.auth'].to_json)
+    sign_in_and_redirect @user
+  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 
   # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+   def passthru
+     super
+   end
 
   # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  def failure
+    redirect_to root_path
+  end
 
   # protected
 

@@ -118,8 +118,16 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
     <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
     <div class="social-login">
-        <button class="btn facebook-btn social-btn" type="button"><span class="text-white"><i class="fa fa-facebook-f"></i> Sign in with Facebook</span> </button>
-        <button class="btn google-btn social-btn" type="button"><span class="text-white"><i class="fa fa-google"></i> Sign in with Google</span> </button>
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%- if provider.to_s =='facebook' %>
+            <button onclick="window.location.href = '<%= omniauth_authorize_path(resource_name, provider) %>'" class="btn facebook-btn social-btn" type="button"><span class="text-white"><i class="fa fa-facebook-f"></i> Sign in with Facebook</span> </button>
+            <% end -%>
+          <%- if provider.to_s =='google_oauth2' %>
+            <button onclick="window.location.href = '<%= omniauth_authorize_path(resource_name, provider) %>'" class="btn google-btn social-btn" type="button"><span class="text-white"><i class="fa fa-google"></i> Sign in with Google</span> </button>
+          <% end -%>
+        <% end -%>
+      <% end -%>
     </div>
     <p style="text-align:center"> OR  </p>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email Address" %>

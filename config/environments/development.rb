@@ -29,6 +29,13 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.before_configuration do
+    env_file = File.join(Rails.root, 'config', 'config-dev.yml')
+    YAML.load(File.open(env_file)).each do |key, value|
+      ENV[key.to_s] = value
+    end if File.exists?(env_file)
+  end
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
